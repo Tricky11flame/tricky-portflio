@@ -1,0 +1,41 @@
+# Page Container
+Website Layout: {
+  grid-columns: 1
+  
+  # Row 1: Header
+  Header: {
+    grid-columns: 2
+    Logo: shadcn.Avatar
+    Nav: shadcn.NavigationMenu
+  }
+
+  # Row 2: Main Body Area
+  Main: {
+    grid-columns: 2
+    
+    Sidebar: {
+      label: "shadcn.Sidebar"
+      Dashboard
+      Settings
+      Profile
+    }
+
+    Content: {
+      grid-rows: 2
+      Hero: shadcn.Card {
+        label: "Hero Section (Card)"
+      }
+      Stats: {
+        grid-columns: 3
+        Card1: shadcn.Card
+        Card2: shadcn.Card
+        Card3: shadcn.Card
+      }
+    }
+  }
+
+  # Row 3: Footer
+  Footer: shadcn.Separator {
+    label: "Footer Content"
+  }
+}
