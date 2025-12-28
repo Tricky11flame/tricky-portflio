@@ -49,4 +49,90 @@ const BentoGridBackground = () => (
     </div>
   </div>
 );
-export {Section,BentoGridBackground} 
+import {  useScroll, useSpring } from "framer-motion";
+
+const ScrollRail = ({ containerRef }) => {
+  const { scrollYProgress } = useScroll({ container: containerRef });
+  
+  // Spring adds "weight" to the scroll movement
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 150,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  return (
+    <div className="fixed right-6 top-1/8 h-3/4 w-[3px] bg-black/90 z-50 rounded-full overflow-hidden">
+      {/* Dynamic progress fill */}
+      <motion.div 
+        className="w-full bg-gradient-to-b from-green-500 via-white to-green-500  origin-top h-full opacity-45"
+        style={{ scaleY }}
+      />
+      
+      {/* Decorative markers for sections */}
+      <div className="absolute inset-0 flex flex-col justify-between py-2 pointer-events-none">
+        {[...Array(8)].map((_, i) => (
+          <div key={i} className="w-full h-[1px] bg-white/10" />
+        ))}
+      </div>
+    </div>
+  );
+};
+import {  useTransform } from "framer-motion";
+// const SECTIONS = [
+//   "Home", "Software", "Experience", "Certificates", 
+//   "Projects", "Projects", "Projects", "Clubs", "Education" , "  Research"
+// ];
+const SECTIONS = ["home","","exp","certs","proj",
+  "","","","","","edu",""
+]
+
+// import { motion, useTransform } from "framer-motion";
+
+const NavItem = ({ name, index, total, progress, onClick }) => {
+  // Calculate the specific scroll window for this section
+  const start = index / total;
+  const end = (index + 1) / total;
+  const center = (start + end) / 2;
+
+  // Hooks are now at the top level of this sub-component
+  const scale = useTransform(progress, [start - 0.1, center, end + 0.1], [1, 1.1, 1]);
+  const opacity = useTransform(progress, [start - 0.1, center, end + 0.1], [0.3, 1.0, 0.3]);
+  const x = useTransform(progress, [start - 0.1, center, end + 0.1], [10, 0, 10]);
+  return (
+    <motion.div
+      style={{ scale, opacity, x }}
+      className="flex items-center gap-4 cursor-pointer group"
+      onClick={onClick}
+    >
+      <span className="text-[14px] font-mono text-white/70 group-hover:font-bold group-hover:text-white/90 transition-colors uppercase tracking-widest">
+        {name}
+      </span>
+      <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_10px_rgba(220,38,38,0.5)]" />
+    </motion.div>
+  );
+};
+const InteractiveNav = ({ containerRef }) => {
+  const { scrollYProgress } = useScroll({ container: containerRef });
+  const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
+
+  return (
+    <div className="fixed right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col items-end gap-10">
+      {SECTIONS.map((name, i) => (
+        <NavItem
+          key={name}
+          name={name}
+          index={i}
+          total={SECTIONS.length}
+          progress={smoothProgress}
+          onClick={() => {
+            containerRef.current.children[i].scrollIntoView({ behavior: 'smooth' });
+          }}
+        />
+      ))}
+      {/* Background connecting line */}
+      <div className="absolute right-[3px] top-0 bottom-0 w-[10px] bg-black/30 -z-10 rounded-b-full rounded-t-full" />
+    </div>
+  );
+};
+export {Section,BentoGridBackground, ScrollRail,InteractiveNav} 
