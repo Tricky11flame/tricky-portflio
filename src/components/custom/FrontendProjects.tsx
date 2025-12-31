@@ -9,7 +9,7 @@ export default function FrontendProjects(){
     {
       cardTitle : "Car Filter",
       cardLink : "projects/carFilter.png",
-      cardContent : "A project that lets you see a filtered view of cars \n A demo project to show my frontend skills \n Showcase good understanding of fundamentals of webdev",
+      cardContent : <>A <span className="text-yellow-300 font-bold">UI clone</span> of an app that lets you <span className="text-yellow-300 font-bold"> see a filtered view of cars. </span> A demo project to show my frontend skills. Showcase good understanding of fundamentals of website Development </>,
       Badges :[
         {badgeName : "javascipt" ,badgeLink :  "https://cdn.simpleicons.org/javascript/F7DF1E"},
         { badgeName : "react js" , badgeLink :  "https://cdn.simpleicons.org/react/61DAFB"}
@@ -18,7 +18,7 @@ export default function FrontendProjects(){
     {
       cardTitle : "Ticket Reservation",
       cardLink : "/projects/ticket-reservation.png",
-      cardContent : "A project around creatig a UI copy a ticket reservation system built on top of shad-cn library \n showcasing skills to use new libraries and develop according to project specifications",
+      cardContent : <>A <span className="text-yellow-300 font-bold">UI copy of a ticket reservation system</span> built on top of <span className="text-yellow-300 font-bold">shad-cn library</span> showcasing skills to use new libraries and develop according to project specifications </>,
       Badges :[{badgeName : "TypeScript" , badgeLink :  "https://cdn.simpleicons.org/typescript/3178C6"},{badgeName : "react js" , badgeLink :  "https://cdn.simpleicons.org/react/61DAFB"}]
     }
   ]

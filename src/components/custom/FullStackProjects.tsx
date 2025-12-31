@@ -19,9 +19,8 @@ export default function FullStackProjects(){
                 <HeavyCard cardTitle = "Plan for Tests"  
                   cardLink = "https://www.youtube.com/embed/7v4L91mKOTU"
                   cardContent = {
-                  <> stuck in preducament, wanted to prep mcqs from the booklet i Had. but was stuck in unproductive alternatives.Then an idea popped what if i just make something that'll let me make&take my own quizes even while not connected to an active internet connection 
-                  <br /> 
-                  Here was my solution design a ui, let user upload their quiz in json and save that json into localStorage for persistence \n The App kinda worked .. score 98/100 :3" 
+                  <> Stuck in preducament, wanted to prep MCQs. Then an idea popped, what if i just make something that'll <span className="text-yellow-300 font-bold">let me make and take my own quizes</span> even while not connected to an active internet connection Here is my solution, quiz in JSON and <span className="text-yellow-300 font-bold">save that into localStorage for persistence 
+                  </span>
                   </>
                   } 
                   Badges = {[
@@ -33,8 +32,7 @@ export default function FullStackProjects(){
                   cardLink = "projects/tier-maker.png"
                   cardContent = {
                   <> 
-                  watching a streamer do a tier list for class in FFTA2 while in my what should be my next project era. <br /> so a thought came to my mind hy nobody is cloning this amazingly interesting and complex problem Here is my Tier Maker Clone <br/>equivalent problem i found on the internet is "KanBan" basically a nested drag and drop
-                  Space Con <br />I was to lead the project to make a website for our annual astronomy fest at my uni showcasing the event and society along with a platform for event registration.
+                  Watching a streamer <span className="text-yellow-300 font-bold">do a tier list</span> for class in FFTA2 while in my what should be my next project era. So a thought occurred, this amazingly interesting and complex problem is <span className="text-yellow-300 font-bold">yet to have a youtube tutorial</span>. Here is my <span className="text-yellow-300 font-bold">Tier Maker Clone</span>, an implementation of a <span className="text-yellow-300 font-bold">nested drag and drop.</span>
                   </>
                   }
                   Badges = {[
@@ -59,7 +57,7 @@ export default function FullStackProjects(){
                   cardLink = "projects/space-con.png"
                   cardContent = {
                     <>
-                      I was to lead the project to make a website for our annual astronomy fest at my uni showcasing the event and society along with a platform for event registration.
+                      As the technical head of Nakshatra, I was to lead the project to make a website for our annual Astronomy & Mathematics fest at my University i.e. NSUT, <span className="font-bold text-yellow-300">showcasing the events</span> and the hosting society along with providing <span className="font-bold text-yellow-500">a platform for event registration.</span>
                     </>
                   }
                   Badges = {[
@@ -72,9 +70,7 @@ export default function FullStackProjects(){
                   cardLink = "https://www.youtube.com/embed/JGhiGZmF6Ig"
                   cardContent = {
                     <>
-                    It is one of those projects i built on totally on a whim
-                    <br />i am into pokemon and i m into world building so was ruminating about what the next region be based on so was having scattered thoughts on ecology of new region and wanted to map pokemon into levels of food chains and masses. 
-                    <br />so i made a web to help me visualise and edit it too 
+                    It is one of those projects i built on totally on a whim. I am into pokemon and I m into world building and I was ruminating about what the next region would look like. So <span className="font-bold text-yellow-300">I made a web to help me visualise and edit pokemon food web levels.</span> 
                     </>
                   }
                   Badges = {[

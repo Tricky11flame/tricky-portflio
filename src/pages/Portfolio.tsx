@@ -8,6 +8,7 @@ import Clubs from "@/components/custom/Clubs";
 import Education from "@/components/custom/Education";
 import Academic from "@/components/custom/Academic";
 import { useRef } from "react";
+import ContactMe from "@/components/custom/ContactMe";
 export default function Portfolio() {
   const scrollRef = useRef(null);
   return (
@@ -25,6 +26,7 @@ export default function Portfolio() {
       <Clubs/>
       <Education/>
       <Academic/>
+      <ContactMe/>
     </div>
     </div>
   );
