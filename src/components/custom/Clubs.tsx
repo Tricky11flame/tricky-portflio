@@ -1,10 +1,11 @@
 import { Avatar ,AvatarImage,AvatarFallback} from "../ui/avatar"
 import { Section } from "./customized"
 import { Badge } from "../ui"
+// import { GraduationCap } from "lucide-react"
 function Clubs() {
   return (
     <Section>
-        <h2 className="text-4xl font-bold mb-10 text-center">Clubs & Communities</h2>
+        <h2 className="text-4xl font-bold mb-10 text-center">Clubs & <span className="text-blue-400">Communities.</span></h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             {name :'The Literature Society' , logo :"/soc/subhasha.png", position : "The President"},
@@ -16,7 +17,7 @@ function Clubs() {
             <div key={club.name} className="p-8 rounded-xl flex items-center justify-center  bg-black/20 border-2 border-white/10 backdrop-blur-md shadow-xl hover:bg-black/40 hover:border-white/20 transition-all duration-300 border-b-4 border-r-4  ">
               <div className="font-semibold text-2xl">{club.name}</div>
               <Avatar className=" size-20 mx-2 opacity-90">
-                <AvatarImage src={"./public/"+club.logo} alt="@shadcn" />
+                <AvatarImage src={club.logo} alt="@shadcn" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
             </div>

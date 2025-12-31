@@ -1,14 +1,14 @@
 import { Section } from "./customized"
 import { Card ,CardHeader,CardTitle,CardContent } from "../ui/card"
-import { BookOpen } from "lucide-react"
+import { BookOpen, GraduationCap } from "lucide-react"
 import { Badge } from "../ui"
 function Education() {
   return (
     <Section>
         <Card className="bg-black/30 border-2 border-white/10 backdrop-blur-md shadow-lg hover:bg-black/50 hover:border-white/20 transition-all duration-300 border-b-4 border-r-4  ">
           <CardHeader>
-            <CardTitle className="flex items-center gap-3 text-4xl text-blue-400">
-              <BookOpen className="size-14"/> Education
+            <CardTitle className="flex items-center gap-3 text-4xl text-pink-400">
+              <GraduationCap className="size-14"/> Education
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-2">

@@ -1,5 +1,5 @@
 import { Badge } from '../ui'
-function HeavyCard({cardTitle , cardContent  , cardLink , Badges} ) {
+function HeavyCard({cardTitle , cardContent  , cardLink , Badges,ytMode = true} ) {
     return (
         <div className='flex flex-col m-auto gap-6'>
         <div title = "copy " className="">
@@ -14,20 +14,31 @@ function HeavyCard({cardTitle , cardContent  , cardLink , Badges} ) {
                 }             
             </h3>
             <div className="flex mt-4">
-                <iframe 
-                    src={cardLink} 
+                {ytMode? (
+                    <iframe 
+                    src={cardLink }  
                     title="YouTube video player" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                     className="w-102 h-51 opacity-100 rounded-md border border-white/10 border-red border-t-2 border-b-4 p-0 "
                     srcDoc={`
-                      <html>
-                        <body style="margin:0; background: #171717; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden;">
-                          <img src="/projects/space-con.png" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                        <html>
+                        <body style="margin:0; background: #FFFFF; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden;">
+                        <img src=${cardLink} style="max-width: 100%; max-height: 100%; object-fit: contain;">
                         </body>
-                      </html>
-                    `}> 
-                </iframe>
+                        </html>
+                        ` }
+                        > </iframe>)
+                        :
+                        (
+                            <iframe 
+                            src={cardLink }  
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            className="w-102 h-51 opacity-100 rounded-md border border-white/10 border-red border-t-2 border-b-4 p-0 "
+                            ></iframe>)
+                    }
             </div> 
                 
         </div>

@@ -5,7 +5,7 @@ function SoftwareDev() {
     <Section>
         <h2 className="text-4xl font-bold mb-10 text-center"> Software <span className="text-blue-400">Development </span>
           <p className="text-neutral-400 text-sm font-normal">with specialization in <span className="text-blue-400">Backend Development </span></p>
-        </h2>
+        </h2> 
             
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {techStack.map((tech) => (
