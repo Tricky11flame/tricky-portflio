@@ -1,10 +1,11 @@
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import type { RefObject } from "react";
 const SECTIONS = [
   "Home", "Software", "Experience", "Certifications", 
   "Projects", "Clubs", "Education", "Academic"
 ];
 
-export const InteractiveNav = ({ containerRef }) => {
+export const InteractiveNav = ({ containerRef }: { containerRef: RefObject<HTMLDivElement | null> }) => {
   const { scrollYProgress } = useScroll({ container: containerRef });
   
   // Smooth the raw scroll value
@@ -31,7 +32,7 @@ export const InteractiveNav = ({ containerRef }) => {
             style={{ scale, opacity, x }}
             className="flex items-center gap-4 cursor-pointer group"
             onClick={() => {
-              containerRef.current.children[i].scrollIntoView({ behavior: 'smooth' });
+              containerRef.current?.children[i]?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
             <span className="text-xs font-mono text-neutral-400 group-hover:text-red-500 transition-colors uppercase tracking-widest">
@@ -43,7 +44,7 @@ export const InteractiveNav = ({ containerRef }) => {
       })}
       
       {/* Background connecting line */}
-      <div className="absolute right-[3px] top-0 bottom-0 w-[1px] bg-neutral-800 -z-10" />
+      <div className="absolute right-0.75 top-0 bottom-0 w-px bg-neutral-800 -z-10" />
     </div>
   );
 };

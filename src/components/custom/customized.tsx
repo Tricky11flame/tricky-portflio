@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import type { MotionValue } from "framer-motion";
+import type { RefObject } from "react";
 const Section = ({ children }: { children: React.ReactNode }) => (
-  <section className="h-screen w-full snap-start flex flex-col justify-center items-center p-6 border-b border-neutral-900/50">
+  <section className="min-h-screen md:h-screen w-full snap-start flex flex-col justify-center items-center p-4 sm:p-6 pb-12 sm:pb-16 md:pb-0 border-b border-neutral-900/50">
     <motion.div 
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -35,23 +37,23 @@ const BentoGridBackground = () => (
       />
 
       {/* 2. Spotlight: Main Center (Blue) */}
-      <div className="absolute top-[-20%] left-0 right-0 h-[1000px] bg-[radial-gradient(circle_farthest-side_at_50%_0%,rgba(59,130,246,0.40),transparent)] opacity-70" />
+      <div className="absolute top-[-20%] left-0 right-0 h-250 bg-[radial-gradient(circle_farthest-side_at_50%_0%,rgba(59,130,246,0.40),transparent)] opacity-70" />
 
       {/* 3. Spotlight: Top Left (Purple) */}
-      <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-[radial-gradient(circle_farthest-side_at_50%_50%,rgba(168,85,247,0.5),transparent)] opacity-65" />
+      <div className="absolute top-[-10%] left-[-10%] w-150 h-150 bg-[radial-gradient(circle_farthest-side_at_50%_50%,rgba(168,85,247,0.5),transparent)] opacity-65" />
 
       {/* 4. Spotlight: Top Right (Cyan/Teal) */}
-      <div className="absolute top-[10%] right-[-15%] w-[500px] h-[500px] bg-[radial-gradient(circle_farthest-side_at_50%_50%,rgba(6,182,212,0.45),transparent)] opacity-50" />
+      <div className="absolute top-[10%] right-[-15%] w-125 h-125 bg-[radial-gradient(circle_farthest-side_at_50%_50%,rgba(6,182,212,0.45),transparent)] opacity-50" />
 
        {/* 5. Spotlight: Random Small Glow near "Intro" text area (Indigo) */}
-      <div className="absolute top-[30%] left-[20%] w-[300px] h-[300px] bg-[radial-gradient(circle_farthest-side_at_50%_50%,rgba(99,102,241,0.42),transparent)] opacity-50" />
+      <div className="absolute top-[30%] left-[20%] w-75 h-75 bg-[radial-gradient(circle_farthest-side_at_50%_50%,rgba(99,102,241,0.42),transparent)] opacity-50" />
     
     </div>
   </div>
 );
 import {  useScroll, useSpring } from "framer-motion";
 
-const ScrollRail = ({ containerRef }) => {
+const ScrollRail = ({ containerRef }: { containerRef: RefObject<HTMLDivElement | null> }) => {
   const { scrollYProgress } = useScroll({ container: containerRef });
   
   // Spring adds "weight" to the scroll movement
@@ -62,17 +64,17 @@ const ScrollRail = ({ containerRef }) => {
   });
 
   return (
-    <div className="fixed right-6 top-1/8 h-3/4 w-[3px] bg-black/90 z-50 rounded-full overflow-hidden">
+    <div className="hidden md:block fixed right-6 top-1/8 h-3/4 w-0.75 bg-black/90 z-50 rounded-full overflow-hidden">
       {/* Dynamic progress fill */}
       <motion.div 
-        className="w-full bg-gradient-to-b from-green-500 via-white to-green-500  origin-top h-full opacity-45"
+        className="w-full bg-linear-to-b from-green-500 via-white to-green-500  origin-top h-full opacity-45"
         style={{ scaleY }}
       />
       
       {/* Decorative markers for sections */}
       <div className="absolute inset-0 flex flex-col justify-between py-2 pointer-events-none">
         {[...Array(8)].map((_, i) => (
-          <div key={i} className="w-full h-[1px] bg-white/10" />
+          <div key={i} className="w-full h-px bg-white/10" />
         ))}
       </div>
     </div>
@@ -89,7 +91,15 @@ const SECTIONS = ["home","","exp","certs","proj",
 
 // import { motion, useTransform } from "framer-motion";
 
-const NavItem = ({ name, index, total, progress, onClick }) => {
+type NavItemProps = {
+  name: string;
+  index: number;
+  total: number;
+  progress: MotionValue<number>;
+  onClick: () => void;
+};
+
+const NavItem = ({ name, index, total, progress, onClick }: NavItemProps) => {
   // Calculate the specific scroll window for this section
   const start = index / total;
   const end = (index + 1) / total;
@@ -112,7 +122,7 @@ const NavItem = ({ name, index, total, progress, onClick }) => {
     </motion.div>
   );
 };
-const InteractiveNav = ({ containerRef }) => {
+const InteractiveNav = ({ containerRef }: { containerRef: RefObject<HTMLDivElement | null> }) => {
   const { scrollYProgress } = useScroll({ container: containerRef });
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
 
@@ -126,12 +136,12 @@ const InteractiveNav = ({ containerRef }) => {
           total={SECTIONS.length}
           progress={smoothProgress}
           onClick={() => {
-            containerRef.current.children[i].scrollIntoView({ behavior: 'smooth' });
+            containerRef.current?.children[i]?.scrollIntoView({ behavior: 'smooth' });
           }}
         />
       ))}
       {/* Background connecting line */}
-      <div className="absolute right-[3px] top-0 bottom-0 w-[10px] bg-black/30 -z-10 rounded-b-full rounded-t-full" />
+      <div className="absolute right-0.75 top-0 bottom-0 w-2.5 bg-black/30 -z-10 rounded-b-full rounded-t-full" />
     </div>
   );
 };

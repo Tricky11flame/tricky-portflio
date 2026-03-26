@@ -1,4 +1,4 @@
-import {  Download, Mail, Send } from 'lucide-react';
+import {  Download, Send } from 'lucide-react';
 import { Section } from './customized';
 
 const ContactMe = () => {
@@ -36,16 +36,16 @@ const ContactMe = () => {
   return (
     <Section > 
     
-    <div className=" flex flex-col p-8 rounded-xl bg-black/20 border-2 border-white/10 backdrop-blur-md shadow-xl hover:bg-black/40 hover:border-white/20 transition-all duration-300 border-b-4 border-r-4 "> 
-    <h2 className="text-4xl font-bold mb-5 pl-8">
+    <div className=" flex flex-col p-4 sm:p-8 rounded-xl bg-black/20 border-2 border-white/10 backdrop-blur-md shadow-xl hover:bg-black/40 hover:border-white/20 transition-all duration-300 border-b-4 border-r-4 "> 
+    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-5 pl-2 sm:pl-8">
         Contact <span className="text-pink-400"> Me!</span>
     </h2>
-    <div className=" bg-background text-foreground p-8 flex items-center justify-center">
+    <div className=" bg-background text-foreground p-4 sm:p-8 flex items-center justify-center">
       <div className="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Left Column: Socials and Resume */}
         <div className="flex flex-col justify-center space-y-6">
           <div>
-            <h1 className="text-2xl font-bold tracking-tight"> Kartikay</h1>
+            <h1 className="text-xl sm:text-2xl font-bold tracking-tight"> Kartikay</h1>
             <p className="text-muted-foreground mt-2">
               <span className='text-pink-400 font-bold'>Full Stack Developer</span> | NSUT ECE 2026
             </p>
@@ -96,7 +96,7 @@ const ContactMe = () => {
         </div>
 
         {/* Right Column: Contact Form */}
-        <div className="rounded-xl border border-white/50 bg-card p-6 shadow-sm">
+        <div className="rounded-xl border border-white/50 bg-card p-4 sm:p-6 shadow-sm">
           <form className="space-y-4" onSubmit={handleSendEmail}>
       <div className="space-y-2">
         <label htmlFor="name" className="text-sm font-medium leading-none">Name</label>
@@ -116,7 +116,7 @@ const ContactMe = () => {
           name="message"
           required
           placeholder="Describe your project or inquiry..."
-          className="flex min-h-[220px] w-full rounded-md border border-input border-white/50 bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="flex min-h-55 w-full rounded-md border border-input border-white/50 bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         />
       </div>
 

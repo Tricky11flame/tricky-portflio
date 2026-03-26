@@ -9,14 +9,19 @@ import Education from "@/components/custom/Education";
 import Academic from "@/components/custom/Academic";
 import { useRef } from "react";
 import ContactMe from "@/components/custom/ContactMe";
+import { useDirectionalSnap } from "@/hooks/use-directional-snap";
+import { PAGE_THEME } from "@/const/theme";
+
 export default function Portfolio() {
-  const scrollRef = useRef(null);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  useDirectionalSnap(scrollRef);
+
   return (
     // Parent container: Handles the scroll snap
-    <div className="relative h-screen w-full bg-neutral-950 text-neutral-100 overflow-hidden">
+    <div className={`relative h-screen w-full ${PAGE_THEME.portfolio.background} ${PAGE_THEME.portfolio.baseText} overflow-hidden`}>
       <BentoGridBackground />
       <ScrollRail containerRef={scrollRef} />
-      <div className="absolute inset-0 overflow-y-scroll snap-y snap-mandatory scroll-smooth scrollbar-hide"
+      <div className="absolute inset-0 overflow-y-auto snap-y snap-mandatory scroll-smooth scrollbar-hide pb-20 md:pb-0 scroll-pb-20 md:scroll-pb-0"
       ref = {scrollRef}>
       <Home />
       <SoftwareDev/>
