@@ -1,38 +1,38 @@
 import type { HeavyCardProps } from "@/components/custom/HeavyCard";
 
 const frontendProjects: HeavyCardProps[] = [
-  {
-    cardTitle: "Car Filter",
-    cardLink: "projects/carFilter.png",
-    cardContent: (
-      <>
-        A <span className="text-yellow-300 font-bold">UI clone</span> of an app that lets you
-        <span className="text-yellow-300 font-bold"> see a filtered view of cars. </span> A demo
-        project to show my frontend skills. Showcase good understanding of fundamentals
-        of website Development
-      </>
-    ),
-    Badges: [
-      { badgeName: "javascipt", badgeLink: "https://cdn.simpleicons.org/javascript/F7DF1E" },
-      { badgeName: "react js", badgeLink: "https://cdn.simpleicons.org/react/61DAFB" },
-    ],
-  },
-  {
-    cardTitle: "Ticket Reservation",
-    cardLink: "/projects/ticket-reservation.png",
-    cardContent: (
-      <>
-        A <span className="text-yellow-300 font-bold">UI copy of a ticket reservation system</span>
-        built on top of <span className="text-yellow-300 font-bold">shad-cn library</span>
-        showcasing skills to use new libraries and develop according to project
-        specifications
-      </>
-    ),
-    Badges: [
-      { badgeName: "TypeScript", badgeLink: "https://cdn.simpleicons.org/typescript/3178C6" },
-      { badgeName: "react js", badgeLink: "https://cdn.simpleicons.org/react/61DAFB" },
-    ],
-  },
+  // {
+  //   cardTitle: "Car Filter",
+  //   cardLink: "projects/carFilter.png",
+  //   cardContent: (
+  //     <>
+  //       A <span className="text-yellow-300 font-bold">UI clone</span> of an app that lets you
+  //       <span className="text-yellow-300 font-bold"> see a filtered view of cars. </span> A demo
+  //       project to show my frontend skills. Showcase good understanding of fundamentals
+  //       of website Development
+  //     </>
+  //   ),
+  //   Badges: [
+  //     { badgeName: "javascipt", badgeLink: "https://cdn.simpleicons.org/javascript/F7DF1E" },
+  //     { badgeName: "react js", badgeLink: "https://cdn.simpleicons.org/react/61DAFB" },
+  //   ],
+  // },
+  // {
+  //   cardTitle: "Ticket Reservation",
+  //   cardLink: "/projects/ticket-reservation.png",
+  //   cardContent: (
+  //     <>
+  //       A <span className="text-yellow-300 font-bold">UI copy of a ticket reservation system</span>
+  //       built on top of <span className="text-yellow-300 font-bold">shad-cn library</span>
+  //       showcasing skills to use new libraries and develop according to project
+  //       specifications
+  //     </>
+  //   ),
+  //   Badges: [
+  //     { badgeName: "TypeScript", badgeLink: "https://cdn.simpleicons.org/typescript/3178C6" },
+  //     { badgeName: "react js", badgeLink: "https://cdn.simpleicons.org/react/61DAFB" },
+  //   ],
+  // },
 ];
 
 const backendProjects: HeavyCardProps[] = [

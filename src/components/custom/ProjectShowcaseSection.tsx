@@ -24,7 +24,10 @@ function ProjectShowcaseSection({
   badgeBorderClass = "border-2",
   projects,
 }: ProjectShowcaseSectionProps) {
-  return (
+  if(projects.length == 0 ){
+    return <></>
+  }
+  else return (
     <Section>
       <Card className={SHARED_COLOR_CLASSES.glassCard}>
         <CardHeader className="mb-0 pb-0">

@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 import type { MotionValue } from "framer-motion";
 import type { RefObject } from "react";
 const Section = ({ children }: { children: React.ReactNode }) => (
-  <section className="min-h-screen md:h-screen w-full snap-start flex flex-col justify-center items-center p-4 sm:p-6 pb-12 sm:pb-16 md:pb-0 border-b border-neutral-900/50">
+  <section className="w-full flex flex-col items-center p-4 sm:p-6 py-14 sm:py-20 border-b border-neutral-900/50">
     <motion.div 
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      viewport={{ once: false, amount: 0.5 }}
+      viewport={{ once: false, amount: 0.2 }}
       className="w-full max-w-4xl"
     >
       {children}

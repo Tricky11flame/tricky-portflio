@@ -5,17 +5,15 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Book, Swords, Gamepad2, Trophy } from "lucide-react";
 import { motion } from "framer-motion";
-import { useRef } from "react";
-import { useDirectionalSnap } from "@/hooks/use-directional-snap";
 import { BORDER_COLORS, HEADING_COLORS, ICON_COLORS, PAGE_THEME, TEXT_COLORS } from "@/const/theme";
 // import { ScrollArea } from "@components/ui/";
 const Section = ({ children }: { children: React.ReactNode }) => (
-  <section className="h-screen w-full snap-start flex flex-col justify-center items-center p-6 pb-12 sm:pb-16 md:pb-0 border-b border-neutral-900/50">
+  <section className="w-full flex flex-col items-center p-6 py-14 sm:py-20 border-b border-neutral-900/50">
     <motion.div 
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      viewport={{ once: false, amount: 0.5 }}
+      viewport={{ once: false, amount: 0.25 }}
       className="w-full max-w-4xl"
     >
       {children}
@@ -62,13 +60,10 @@ const BentoGridBackground2 = () => (
 );
 
 export default function Extra() {
-  const scrollRef = useRef<HTMLDivElement | null>(null);
-  useDirectionalSnap(scrollRef);
-
   return (
     <div className={`relative h-screen w-full ${PAGE_THEME.extra.background} ${PAGE_THEME.extra.baseText} overflow-hidden`}>
       <BentoGridBackground2 />
-      <div ref={scrollRef} className="absolute inset-0 overflow-y-auto snap-y snap-mandatory scroll-smooth scrollbar-hide pb-20 md:pb-0 scroll-pb-20 md:scroll-pb-0">
+      <div className="absolute inset-0 overflow-y-auto scroll-smooth scrollbar-hide">
       <Section>
       <div className="max-w-6xl mx-auto mb-12 ">
         <Link to="/">
